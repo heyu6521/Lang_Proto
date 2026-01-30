@@ -56,6 +56,7 @@
 | | 只合并特定文件 | `git checkout [分支名] [文件]` |
 | | 修改分支名称 | `git branch -m [旧名] [新名]` |
 | | 删除远程分支 | `git push origin --delete [分支名]` |
+| | 推送所有本地分支 | `git push origin --all` |
 | **日志状态** | 查看工作区状态 | `git status` |
 | | 精简查看最近 N 条记录 | `git log --oneline -n [N]` |
 | | 查看文件具体修改 | `git diff [文件名]` |
