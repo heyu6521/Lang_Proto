@@ -81,19 +81,9 @@
 | | 重新加载防火墙 | `sudo firewall-cmd --reload` |
 | | 检查规则是否生效 | `sudo firewall-cmd --zone=public...` |
 
----
 
-## 6. SystemVerilog 常用符号 (补充)
 
-| 运算符 | 功能 | 例子 |
-| :--- | :--- | :--- |
-| **&** | 缩减与 (Reduction AND) | `(& bit_vector)` |
-| **\|** | 缩减或 (Reduction OR) | `(| bit_vector)` |
-| **^** | 缩减异或 (Reduction XOR) | `(^ bit_vector)` |
-
----
-
-## 7. GVim 进阶技巧 (批量加文本)
+## 6. GVim 进阶技巧 (批量加文本)
 
 | 方法 | 模式 | 操作步骤 |
 | :--- | :--- | :--- |
