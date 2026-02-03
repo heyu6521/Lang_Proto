@@ -64,6 +64,51 @@ openclaw status
 
 ---
 
+## OpenClaw：TUI 退出后仍在后台运行（以及如何“挂着”TUI）
+
+概念区分：
+
+- **Gateway（后台常驻）**：负责维持连接、收发消息（比如 WhatsApp）。
+- **TUI（前台界面）**：只是一个控制台 UI 客户端，用来“看/操作” gateway；退出 TUI 不等于停止 gateway。
+
+### 1) 目标：关掉 TUI，但 OpenClaw 继续在线
+
+确保 gateway 服务在跑：
+
+```bash
+systemctl --user status openclaw-gateway.service --no-pager
+openclaw gateway status
+```
+
+然后直接退出 TUI 即可（通常 `q` / `Ctrl+C` / `exit`）。
+
+### 2) 目标：TUI 也在后台挂着，之后随时接回同一个界面（推荐 tmux）
+
+启动一个 tmux 会话并运行 TUI：
+
+```bash
+tmux new -s openclaw
+openclaw tui
+```
+
+把 TUI “丢到后台”但保持运行：
+
+- 在 tmux 里按：`Ctrl+b` 然后按 `d`（detach）
+
+之后回来继续看：
+
+```bash
+tmux attach -t openclaw
+```
+
+查看有哪些 tmux 会话：
+
+```bash
+tmux ls
+```
+
+---
+
 ## 备忘：常见习惯
 
 - 尽量用 `systemctl --user` 管 OpenClaw 服务；用 `openclaw gateway status` 快速确认 gateway 监听/探活。
